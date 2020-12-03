@@ -54,7 +54,7 @@ public class FacultyTest {
 		verify(facultyDao,times(1)).save(faculty);
 	}
 	@Test
-	public void updateDoctorTest() throws RecordNotFoundException {
+	public void updateFacultyTest() throws RecordNotFoundException {
 		AssignFacultyEntity faculty = new AssignFacultyEntity();
 		faculty.setUserId((long) 161102);
 		faculty.setUserName("kiran");

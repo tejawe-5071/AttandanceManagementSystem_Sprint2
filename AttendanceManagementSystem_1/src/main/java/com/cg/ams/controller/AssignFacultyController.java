@@ -27,7 +27,7 @@ import com.cg.ams.service.AssignFacultyService;
 @RequestMapping("/api/faculties")
 public class AssignFacultyController {
 	@Autowired
-	AssignFacultyService facultyService;
+	private AssignFacultyService facultyService;
 	
 	@GetMapping("/hello-world")
 	public String sayHello() {
@@ -36,7 +36,7 @@ public class AssignFacultyController {
 
 	// creating a get mapping that retrieves all the books detail from the database
 	@GetMapping("/list")
-	private List<AssignFacultyEntity> getAllFaculty() throws RecordNotFoundException {
+	public List<AssignFacultyEntity> getAllFaculty() throws RecordNotFoundException {
 		return facultyService.findAllFaculty();// response entity
 	}
 
