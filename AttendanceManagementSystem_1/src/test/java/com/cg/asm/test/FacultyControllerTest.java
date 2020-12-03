@@ -14,6 +14,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.ResponseEntity;
 
 import com.cg.ams.controller.AssignFacultyController;
 import com.cg.ams.entity.AssignFacultyEntity;
@@ -75,6 +76,25 @@ public class FacultyControllerTest {
 		
 		assertEquals(180, facultyEntity.getCourseId());
 	}
+	@Test
+	public void viewFacultyByIdTest() throws RecordNotFoundException {
+
+		AssignFacultyEntity facultyEntity = new AssignFacultyEntity();
+		facultyEntity.setUserId((long) 165612);
+		facultyEntity.setUserName("gopi");
+		facultyEntity.setCourseId((long) 1780);
+		facultyEntity.setCourseName("EEE");
+		facultyEntity.setSubjectId((long) 775);
+		facultyEntity.setSubjectName("vlsi");
+		facultyEntity.setTotalClass("79");
+		Long facultyId = facultyEntity.getFacultyId();
+		when(facultyController.getFacultyById(facultyId).getBody()).thenReturn(facultyEntity);
+		ResponseEntity<AssignFacultyEntity> viewFaculty = facultyController.getFacultyById(facultyId);
+		assertEquals("EEE", viewFaculty.getBody().getCourseName());
+
+	}	
+	
+	
 	
 
 
