@@ -93,12 +93,6 @@ public class FacultyControllerTest {
 		assertEquals("EEE", viewFaculty.getBody().getCourseName());
 
 	}	
-	
-	
-	
-
-
-
 @Test
 public void viewFacultyListTest() throws RecordNotFoundException {
 	List<AssignFacultyEntity> facultyList = new ArrayList<AssignFacultyEntity>();
